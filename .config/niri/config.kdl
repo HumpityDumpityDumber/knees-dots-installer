@@ -361,7 +361,7 @@ binds {
 
 // Environment Variables
 environment {
-    DISPLAY ":0"
+    DISPLAY ":1"
     GDK_BACKEND "wayland"
     CLUTTER_BACKEND "wayland"
     MOZ_ENABLE_WAYLAND "1"
