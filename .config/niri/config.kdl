@@ -197,11 +197,10 @@ binds {
     // Application Launchers
     Mod+T repeat=false hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Slash repeat=false hotkey-overlay-title="Run an App: rofi" { spawn "rofi" "-show" "drun"; }
-    Mod+F repeat=false hotkey-overlay-title="Open Browser: floorp" { spawn "floorp"; }
+    Mod+F repeat=false hotkey-overlay-title="Open Browser: floorp" { spawn "flatpak run one.ablaze.floorp"; }
     Mod+E repeat=false hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus" "--new-window"; }
     Mod+C repeat=false hotkey-overlay-title="Run an App: Equibop" { spawn "equibop"; }
-    Mod+X repeat=false hotkey-overlay-title="Run App: obsidian" { spawn "env" "obsidian"; }
-    Mod+S repeat=false hotkey-overlay-title="Run App: scrcpy" { spawn "scrcpy" "--tcpip"; }
+    Mod+S repeat=false hotkey-overlay-title="Run App: scrcpy" { spawn "scrcpy"; }
     Ctrl+Shift+Escape repeat=false hotkey-overlay-title="Show System Tasks" { spawn "kitty" "-e" "btop"; }
 
     // open emoji picker
