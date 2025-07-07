@@ -167,8 +167,16 @@ chmod +x $HOME/.config/niri/scripts/*
 
 # configure plymouth
 echo (set_color yellow)"Configuring Plymouth..."(set_color normal)
-sudo sed -i "/^\[Daemon\]/a ShowDelay=0" /etc/plymouth/plymouthd.conf
-sudo sed -i "/^HOOKS=/ s/)$/ plymouth)/" /etc/mkinitcpio.conf
+
+# Insert ShowDelay=0 after [Daemon] in the Plymouth config
+sudo sed -i '/^\[Daemon\]/a ShowDelay=0' /etc/plymouth/plymouthd.conf
+
+# Append 'plymouth' to the HOOKS line in mkinitcpio.conf, if not already present
+if not grep -q 'plymouth' /etc/mkinitcpio.conf
+    sudo sed -i 's/^\(HOOKS=.*\))$/\1 plymouth)/' /etc/mkinitcpio.conf
+end
+
+# Set and rebuild the default Plymouth theme
 sudo plymouth-set-default-theme -R bgrt
 
 # set fish as default shell
