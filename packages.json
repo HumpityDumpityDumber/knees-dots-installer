@@ -44,5 +44,7 @@
   "swayidle",
   "swaylock-effects",
   "ffplay",
-  "xwayland-satellite"
+  "xwayland-satellite",
+  "nautilus-copy-path",
+  "nautilus"
 ]
