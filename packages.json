@@ -41,5 +41,6 @@
   "slurp",
   "swayidle",
   "swaylock-effects",
-  "ffplay"
+  "ffplay",
+  "wayland-satellite"
 ]
