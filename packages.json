@@ -42,5 +42,5 @@
   "swayidle",
   "swaylock-effects",
   "ffplay",
-  "wayland-satellite"
+  "xwayland-satellite"
 ]
