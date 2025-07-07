@@ -189,6 +189,10 @@ mkdir -p $HOME/.local/share/fonts
 cp -r "$SCRIPT_DIR/fonts/"* $HOME/.local/share/fonts/
 fc-cache -fv
 
+# clone gruvbox wallpapers
+echo (set_color yellow)"Cloning Gruvbox wallpapers..."(set_color normal)
+git clone --depth 1 https://github.com/AngelJumbo/gruvbox-wallpapers.git $HOME/Pictures/gruvpapers
+
 # clean up
 echo (set_color yellow)"Cleaning up..."(set_color normal)
 rm -rf $HOME/spicetify-arch-installation-guide/
