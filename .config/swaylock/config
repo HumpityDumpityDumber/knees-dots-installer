@@ -1,0 +1,78 @@
+ignore-empty-password
+indicator
+
+indicator-radius=100
+indicator-thickness=30
+indicator-idle-visible
+
+font=Google Sans Rounded
+timestr=%I:%M %p
+
+#font-size=11
+
+text-color=fbf1c7
+text-clear-color=fbf1c7
+text-caps-lock-color=fbf1c7
+text-ver-color=fbf1c7
+text-wrong-color=fbf1c7
+
+color=1d2021
+separator-color=28282800
+#line-color=
+
+# Sets the color of the key press highlight segments.
+key-hl-color=fbf1c7
+# Sets the color of backspace highlight segments.
+bs-hl-color=bdae93
+
+caps-lock-key-hl-color=bdae93
+caps-lock-bs-hl-color=bdae93
+
+
+# Sets the color of the inside of the indicator.
+inside-color=28282800
+inside-clear-color=bdae9300
+inside-caps-lock-color=bdae9300
+inside-ver-color=fbf1c700
+inside-wrong-color=fb493400
+line-uses-inside
+
+# Sets the color of the ring of the indicator when typing or idle.
+ring-color=a89984
+ring-clear-color=bdae93
+ring-caps-lock-color=bdae93
+ring-ver-color=fbf1c7
+ring-wrong-color=fb4934
+
+datestr=%A, %d %B
+clock
+
+# Add layout settings to properly display text elements
+layout-bg-color=1d2021
+layout-border-color=282828
+layout-text-color=fbf1c7
+
+# Background image or color configuration
+# Uncomment and set the path to an image file to use as the background
+# image=/path/to/your/image.png
+
+# Uncomment to set a solid color as the background
+# background-color=282828
+
+# use a screenshot of current desktop as background
+screenshots
+
+# apply a stronger blur (radius x passes)
+effect-blur=10x5
+
+# make the lockscreen fade in over 2 seconds
+fade-in=2
+
+# add a subtle pixelation
+effect-pixelate=2
+
+# desaturate
+effect-greyscale
+
+# darken edges for focus
+effect-vignette=0.4:0.6

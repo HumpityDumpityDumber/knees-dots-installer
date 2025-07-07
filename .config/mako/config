@@ -1,0 +1,45 @@
+# General
+
+icons=1
+markup=1
+actions=1
+width=300
+height=200
+sort=-time
+invisible=0
+group-by=none
+format=%s\n%b
+layer=overlay
+border-size=4
+max-visible=10
+margin=2,2,2,2
+outer-margin=15
+max-icon-size=42
+anchor=bottom-right
+border-radius=7
+ignore-timeout=0
+text-alignment=right
+default-timeout=3000
+on-button-left=dismiss-all
+font=Google Sans Rounded Black 9.5
+icon-path=/usr/share/icons/hicolor
+
+
+# Colors
+
+background-color=#282828
+text-color=#ebdbb2
+border-color=#1d2021
+progress-color=over #ebdbb2
+
+# Per-mode settings
+
+[mode=do-not-disturb]
+invisible=1
+on-notify=none
+
+[mode=silent]
+on-notify=none
+
+[urgency=high]
+border-color=#fd001d

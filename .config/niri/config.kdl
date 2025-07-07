@@ -1,0 +1,407 @@
+hotkey-overlay {
+    skip-at-startup
+}
+
+clipboard {
+    disable-primary
+}
+
+// Input Configuration
+input {
+    keyboard {
+        xkb {
+            // layout "us,ru"
+            // options "grp:win_space_toggle,compose:ralt,ctrl:nocaps"
+        }
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+
+    mouse {
+        // natural-scroll
+        // accel-speed 0.2
+    }
+
+    trackpoint {
+        // natural-scroll
+    }
+
+    tablet {
+        map-to-output "DP-1"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+}
+
+// Output Configuration
+output "HDMI-A-1" {
+    mode "1920x1080@60"
+    scale 1
+    transform "normal"
+    position x=2560 y=270
+}
+
+output "DP-1" {
+    mode "2560x1440@165"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate on-demand=true
+}
+
+// Layout Configuration
+layout {
+    background-color "transparent"
+
+    gaps 16
+
+    empty-workspace-above-first
+
+    always-center-single-column
+
+    default-column-display "tabbed"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    default-column-width {}
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 8
+        active-gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+        inactive-gradient from="#bf0000ff" to="#005fbe55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+
+    }
+
+    shadow {
+        on
+        softness 60
+        spread 10
+        offset x=0 y=6
+        color "#1d2021"
+    }
+
+    tab-indicator {
+        hide-when-single-tab
+        place-within-column
+        gap 16
+        width 8
+        length total-proportion=0.8
+        position "left"
+        gaps-between-tabs 8
+        corner-radius 8
+        active-gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+        inactive-gradient from="#bf0000ff" to="#005fbe55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+    }
+
+    insert-hint {
+        gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+}
+
+
+}
+
+// Startup Applications
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "xrandr" "--output" "DP-1" "--primary"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "--all"
+spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "mako"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "cava-spline-bar"
+spawn-at-startup "waybar"
+spawn-at-startup "/home/knee/.config/niri/scripts/cc-audio.fish"
+spawn-at-startup "swww-daemon"
+spawn-at-startup "swww" "img" "/home/knee/Pictures/gruvpapers/wallpapers/minimalistic/starry-sky.png"
+spawn-at-startup "/home/knee/.config/niri/scripts/dyncast.fish"
+spawn-at-startup "fish" "-c" "killall" "wl-clip-persist" "&&" "wl-clip-persist" "-c" "regular"
+spawn-at-startup "swayidle"
+
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// Animation Configuration
+animations {
+
+  window-open {
+    spring damping-ratio=0.7 stiffness=100 epsilon=0.0001
+  }
+
+  window-close {
+    spring damping-ratio=0.7 stiffness=100 epsilon=0.0001
+  }
+
+  window-resize {
+    spring damping-ratio=0.8 stiffness=100 epsilon=0.0001
+  }
+
+  workspace-switch {
+    spring damping-ratio=0.8 stiffness=300 epsilon=0.0001
+  }
+
+  horizontal-view-movement {
+    spring damping-ratio=0.8 stiffness=200 epsilon=0.0001
+  }
+
+  overview-open-close {
+    spring damping-ratio=0.7 stiffness=200 epsilon=0.0001
+  }
+
+  window-movement {
+    spring damping-ratio=0.7 stiffness=300 epsilon=0.0001
+  }
+}
+// Window Rules
+
+// Put swww inside the overview backdrop.
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+window-rule {
+    match app-id=r#"floorp$"# title="^Picture-in-Picture$"
+    open-floating true
+    default-column-width { fixed 480; }
+    default-window-height { fixed 270; }
+}
+
+window-rule {
+    match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=0 y=0 relative-to="bottom-right"
+    open-focused false
+}
+
+window-rule {
+    geometry-corner-radius 15
+    clip-to-geometry true
+}
+
+// Key Bindings
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    // Application Launchers
+    Mod+T repeat=false hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Slash repeat=false hotkey-overlay-title="Run an App: rofi" { spawn "rofi" "-show" "drun"; }
+    Mod+F repeat=false hotkey-overlay-title="Open Browser: floorp" { spawn "floorp"; }
+    Mod+E repeat=false hotkey-overlay-title="File Manager: nautilus" { spawn "nautilus" "--new-window"; }
+    Mod+C repeat=false hotkey-overlay-title="Run an App: Equibop" { spawn "equibop"; }
+    Mod+X repeat=false hotkey-overlay-title="Run App: obsidian" { spawn "env" "obsidian"; }
+    Mod+S repeat=false hotkey-overlay-title="Run App: scrcpy" { spawn "scrcpy" "--tcpip"; }
+    Ctrl+Shift+Escape repeat=false hotkey-overlay-title="Show System Tasks" { spawn "kitty" "-e" "btop"; }
+
+    // open emoji picker
+    Mod+Ctrl+V repeat=false hotkey-overlay-title="Open emoji picker" { spawn "/home/knee/.config/niri/scripts/emoji-picker.fish"; }
+
+    // Toggle Main Monitor
+    Mod+Shift+P repeat=false hotkey-overlay-title="Disable Main Monitor" { spawn "/home/knee/.config/niri/scripts/toggle-main-monitor.fish"; }
+
+    // open bitwarden picker
+    Mod+Ctrl+B repeat=false hotkey-overlay-title="Open bitwarden poppup" { spawn "rofi-rbw"; }
+
+    // Audio Controls
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    // Window Management
+    Mod+Tab repeat=false { toggle-overview; }
+    Mod+Q { close-window; }
+
+    // Focus Movement
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+MouseBack  { focus-window-down; }
+    Mod+MouseForward    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+    Mod+H     { focus-column-left; }
+    Mod+J     { focus-window-down; }
+    Mod+K     { focus-window-up; }
+    Mod+L     { focus-column-right; }
+
+    // Window Movement
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+    Mod+Ctrl+H     { move-column-left; }
+    Mod+Ctrl+J     { move-window-down; }
+    Mod+Ctrl+K     { move-window-up; }
+    Mod+Ctrl+L     { move-column-right; }
+
+    // Column Navigation
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    // Monitor Focus
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Right { focus-monitor-right; }
+    Mod+Shift+H     { focus-monitor-left; }
+    Mod+Shift+L     { focus-monitor-right; }
+
+    // Monitor Movement
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    Mod+Shift+Ctrl+H     { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+J     { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
+
+    // Workspace Navigation
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+U              { focus-workspace-down; }
+    Mod+I              { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+    Mod+Ctrl+U         { move-column-to-workspace-down; }
+    Mod+Ctrl+I         { move-column-to-workspace-up; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+    Mod+Shift+U         { move-workspace-down; }
+    Mod+Shift+I         { move-workspace-up; }
+
+    // Mouse Wheel Bindings
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Workspace Numbers
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+6 { focus-workspace 6; }
+    Mod+7 { focus-workspace 7; }
+    Mod+8 { focus-workspace 8; }
+    Mod+9 { focus-workspace 9; }
+    Mod+Ctrl+1 { move-column-to-workspace 1; }
+    Mod+Ctrl+2 { move-column-to-workspace 2; }
+    Mod+Ctrl+3 { move-column-to-workspace 3; }
+    Mod+Ctrl+4 { move-column-to-workspace 4; }
+    Mod+Ctrl+5 { move-column-to-workspace 5; }
+    Mod+Ctrl+6 { move-column-to-workspace 6; }
+    Mod+Ctrl+7 { move-column-to-workspace 7; }
+    Mod+Ctrl+8 { move-column-to-workspace 8; }
+    Mod+Ctrl+9 { move-column-to-workspace 9; }
+
+    // Column Management
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    // Window Sizing
+    Mod+R { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Ctrl+R { reset-window-height; }
+    Mod+Shift+F { maximize-column; }
+    Mod+Alt+F { fullscreen-window; }
+    Mod+Ctrl+F { expand-column-to-available-width; }
+    Mod+Ctrl+C { center-column; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Floating Windows
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Column Display
+    Mod+W { toggle-column-tabbed-display; }
+
+    // Screenshots
+    Print { screenshot-screen; }
+    Ctrl+Print { spawn "~/.config/niri/scripts/ss-edit.fish"; }
+
+    // Color Picker
+    Mod+P hotkey-overlay-title="Color Picker" { spawn "sh" "-c" "output=$(niri msg pick-color) && hex=$(echo \"$output\" | grep -o '#[0-9a-fA-F]*' | tr -d '\\n') && echo -n $hex | wl-copy && notify-send 'Color Picker' \"Copied: $hex\""; }
+
+    // System Controls
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+E { quit; }
+    Mod+Shift+K { power-off-monitors; }
+    Mod+Shift+O { spawn "swaylock"; }
+}
+
+// Environment Variables
+environment {
+    DISPLAY ":0"
+    GDK_BACKEND "wayland"
+    CLUTTER_BACKEND "wayland"
+    MOZ_ENABLE_WAYLAND "1"
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    XDG_CURRENT_DESKTOP "niri"
+    XDG_SESSION_DESKTOP "niri"
+    XDG_SESSION_TYPE "wayland"
+    OZONE_PLATFORM "wayland"
+    GDK_SCALE "1"
+    QT_AUTO_SCREEN_SCALE_FACTOR "1"
+    QT_SCALE_FACTOR "1"
+    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+    QT_QPA_PLATFORM "wayland;xcb"
+    QT_QPA_PLATFORMTHEME "qt6ct"
+    TERMINAL "kitty"
+}
+
+// Cursor Configuration
+cursor {
+    xcursor-theme "gruvterial"
+    xcursor-size 40
+    hide-when-typing
+    hide-after-inactive-ms 1000
+}
+
+// Overview Configuration
+overview {
+    backdrop-color "#1d2021"
+    zoom 0.6
+}
+
+// Gestures Configuration
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+// Layer Rules
+layer-rule {
+    match namespace="^rofi$"
+    baba-is-float true
+}

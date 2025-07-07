@@ -1,0 +1,17 @@
+/**
+   * @name Hidden Threads
+   * @author vortex_chaos, catpurrrchino
+   * @version 2.0.0
+   * @description Make Threads hidden by default and slide down on hover
+*/
+[class*=containerDefault_][data-dnd-name]:hover+[class*=container_]:has([class*=spineBorder_]),
+[class*=containerDefault_][data-dnd-name]+[class*=container_]:has([class*=spineBorder_], li[class*=container_]):hover {
+    max-height: max-content;
+    transition: max-height 1s ease;
+}
+
+[class*=containerDefault_][data-dnd-name]+[class*=container_]:has([class*=spineBorder_], li[class*=container_]) {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}

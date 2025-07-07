@@ -1,0 +1,8 @@
+# Lock screen after 5 minutes (300 seconds)
+timeout 10 'swaylock -f -c 000000'
+
+# After 10 minutes (600 seconds), power off monitors via Niri
+timeout 600 'niri msg action power-off-monitors'
+
+# Lock when the system is about to sleep (in case sleep is triggered manually)
+before-sleep 'swaylock -f -c 000000'

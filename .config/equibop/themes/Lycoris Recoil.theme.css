@@ -1,0 +1,66 @@
+/**
+* @name Lycoris Recoil
+* @version Auto Update
+* @description Custom Discord Theme Made By rFeinq
+* The theme uses FrostedGlass.css<3
+* @author rFeinq
+*/
+@import url("https://discordstyles.github.io/FrostedGlass/dist/FrostedGlass.css");
+:root {
+--pink: #FF339FFF; 
+--red: #c31432;
+--grey: #D5C5C0;
+--background-image: url('https://i.imgur.com/87lKkAa.jpg');
+--background-image-blur: 17px;
+--background-image-size: cover;
+--background-image-position: center;
+--popout-modal-image: url('https://i.imgur.com/1099EdC.jpg');
+--popout-modal-blur: 100px;
+--popout-modal-size: cover;
+--popout-modal-position: center;
+--home-button-image: url('https://i.imgur.com/NvOPBkM.jpg');
+--home-button-size: cover;
+--home-button-position: center;
+--serverlist-brightness: 0.8;
+--left-brightness: 0.8;
+--middle-brightness: 0.6;
+--right-brightness: 0;
+--popout-modal-brightness: 0.75;
+--gradient-primary: 195,20,50;
+--gradient-secondary: 36,11,54;
+--gradient-direction: 320deg;
+--tint-colour: 255,51,159;
+--tint-brightness: 0;
+--window-padding: 0px;
+--window-roundness: 0px;
+--scrollbar-colour: #FF339F2E;
+--link-colour: var(--red);
+--show-gift-gif-buttons: no-repeat;
+--font: 'Whitney';
+--update-notice-1: none;
+}
+
+.fieldList-in8WkP {
+    background-color:  rgba(0,0,0,.0);
+}
+
+.wordmarkWindows-2dq6rw {
+    color: var(--grey);
+}
+
+.typeWindows-2-g3UY {
+    margin-top: 0px;
+    background-color:  rgba(0, 0, 0, var(--left-brightness));
+}
+.mention-3XBnnZ {
+    background-color: var(--red);
+}
+.item-2LIpTv {
+    background-color: var(--grey);
+    opacity: 0.9;
+}
+.banner-1YaD3N {
+    width: 100%;
+    margin: 0 0px;
+    border-radius: 8px;
+}
