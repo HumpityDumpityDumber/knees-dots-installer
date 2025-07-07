@@ -223,7 +223,7 @@
     "format": "󰍃",
     "tooltip": true,
     "tooltip-format": "Logout",
-    "on-click": "niri msg action quit --no-confirmation",
+    "on-click": "niri msg action quit --skip-confirmation",
   },
 
   "custom/restart": {
