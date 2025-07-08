@@ -2,6 +2,7 @@
   "micro",
   "kitty",
   "meson",
+  "waybar",
   "python-gobject",
   "python3",
   "blueprint-compiler",
