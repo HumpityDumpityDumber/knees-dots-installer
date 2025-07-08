@@ -3,6 +3,7 @@
   "kitty",
   "meson",
   "waybar",
+  "file-roller",
   "python-gobject",
   "python3",
   "blueprint-compiler",
