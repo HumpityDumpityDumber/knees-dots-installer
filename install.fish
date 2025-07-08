@@ -118,6 +118,10 @@ sudo chmod a+wr /opt/spotify/Apps -R
 echo (set_color yellow)"Patching Spotify with Spicetify..."(set_color normal)
 spicetify backup apply
 
+# fixing micro
+echo (set_color yellow)"Fixing Micro editor..."(set_color normal)
+sudo ln -sf /usr/bin/kitty /usr/local/bin/xterm
+
 # download grub theme
 echo (set_color yellow)"Downloading GRUB theme..."(set_color normal)
 sudo git clone --depth 1 https://github.com/13atm01/GRUB-Theme.git "/opt/GRUB-Theme/"
