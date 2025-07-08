@@ -176,6 +176,11 @@ if not grep -q 'plymouth' /etc/mkinitcpio.conf
     sudo sed -i 's/^\(HOOKS=.*\))$/\1 plymouth)/' /etc/mkinitcpio.conf
 end
 
+# add splash to grub command
+if not grep -q 'splash' /etc/default/grub
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&splash /' /etc/default/grub
+end
+
 # Set and rebuild the default Plymouth theme
 sudo plymouth-set-default-theme -R bgrt
 
