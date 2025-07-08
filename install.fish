@@ -175,6 +175,10 @@ end
 # Set and rebuild the default Plymouth theme
 sudo plymouth-set-default-theme -R bgrt
 
+# reload grub configuration
+echo (set_color yellow)"Reloading GRUB configuration..."(set_color normal)
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
 # enable and set GDM as display manager
 echo (set_color yellow)"Enabling GDM display manager..."(set_color normal)
 sudo systemctl enable gdm
