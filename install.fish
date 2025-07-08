@@ -100,36 +100,13 @@ end
 # install flatpaks
 echo (set_color yellow)"Installing Flatpaks..."(set_color normal)
 flatpak install --assumeyes flathub \
-    org.kde.krita \
-    org.gimp.GIMP \
-    org.blender.Blender \
-    com.visualstudio.code \
     com.obsproject.Studio \
-    md.obsidian.Obsidian \
-    one.ablaze.floorp \
     com.jeffser.Alpaca \
-    info.cemu.Cemu \
     com.github.marhkb.Pods \
-    im.riot.Riot \
-    org.prismlauncher.PrismLauncher \
     io.mrarm.mcpelauncher \
 
-# installing spotify
-echo (set_color yellow)"Installing Spotify..."(set_color normal)
-flatpak install --assumeyes flathub com.spotify.Client
-
-# patching spotify with spicetify
-echo (set_color yellow)"Patching Spotify with Spicetify..."(set_color normal)
-
-# clone spicetify-arch-installation-guide repository
-echo (set_color cyan)"Downloading Spicetify Patching Script..."(set_color normal)
-git clone --depth 1 https://github.com/boudywho/spicetify-arch-installation-guide.git $HOME/spicetify-arch-installation-guide
-
-# run spicetify install script
-echo (set_color cyan)"Patching Spotify with Spicetify..."(set_color normal)
-cd $HOME/spicetify-arch-installation-guide
-chmod +x spicetify.sh
-./spicetify.sh
+# install spicetify
+curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
 
 # download grub theme
 echo (set_color yellow)"Downloading GRUB theme..."(set_color normal)
@@ -148,7 +125,7 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # download audio visualizer bar
 echo (set_color yellow)"Downloading Knee's audio visualizer bar..."(set_color normal)
-git clone --depth 1 https://github.com/HumpityDumpityDumber/python-bar-rewrite.git "/opt/python-bar-rewrite/"
+sudo git clone --depth 1 https://github.com/HumpityDumpityDumber/python-bar-rewrite.git "/opt/python-bar-rewrite/"
 
 # install audio visualizer bar
 echo (set_color yellow)"Installing Knee's audio visualizer bar..."(set_color normal)
@@ -184,6 +161,11 @@ end
 # Set and rebuild the default Plymouth theme
 sudo plymouth-set-default-theme -R bgrt
 
+# enable and set GDM as display manager
+echo (set_color yellow)"Enabling GDM display manager..."(set_color normal)
+sudo systemctl enable gdm
+sudo systemctl set-default graphical.target
+
 # set fish as default shell
 echo (set_color yellow)"Setting Fish as the default shell..."(set_color normal)
 chsh -s (which fish)
@@ -200,7 +182,6 @@ git clone --depth 1 https://github.com/AngelJumbo/gruvbox-wallpapers.git $HOME/P
 
 # clean up
 echo (set_color yellow)"Cleaning up..."(set_color normal)
-rm -rf $HOME/spicetify-arch-installation-guide/
 sudo rm -rf /opt/GRUB-Theme/
 sudo rm -rf /opt/python-bar-rewrite/
 yay -Yc --noconfirm
