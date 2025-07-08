@@ -376,6 +376,7 @@ environment {
     QT_QPA_PLATFORM "wayland;xcb"
     QT_QPA_PLATFORMTHEME "qt6ct"
     TERMINAL "kitty"
+    TERM "kitty"
 }
 
 // Cursor Configuration
