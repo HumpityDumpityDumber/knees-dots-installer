@@ -106,7 +106,17 @@ flatpak install --assumeyes flathub \
     io.mrarm.mcpelauncher \
 
 # install spicetify
+echo (set_color yellow)"Installing Spicetify CLI..."(set_color normal)
 curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
+
+# set permissions for spicetify
+echo (set_color yellow)"Setting permissions for Spicetify..."(set_color normal)
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+
+# patch spotify
+echo (set_color yellow)"Patching Spotify with Spicetify..."(set_color normal)
+spicetify backup apply
 
 # download grub theme
 echo (set_color yellow)"Downloading GRUB theme..."(set_color normal)
