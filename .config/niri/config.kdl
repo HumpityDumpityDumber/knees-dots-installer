@@ -203,6 +203,9 @@ binds {
     Mod+S repeat=false hotkey-overlay-title="Run App: scrcpy" { spawn "scrcpy"; }
     Ctrl+Shift+Escape repeat=false hotkey-overlay-title="Show System Tasks" { spawn "kitty" "-e" "btop"; }
 
+    // open capture card stream
+    Mod+X repeat=false hotkey-overlay-title="Open Capture Card Stream" { spawn "/home/knee/.config/niri/scripts/cc-stream.fish"; }
+
     // open emoji picker
     Mod+Ctrl+V repeat=false hotkey-overlay-title="Open emoji picker" { spawn "/home/knee/.config/niri/scripts/emoji-picker.fish"; }
 
@@ -377,6 +380,7 @@ environment {
     QT_QPA_PLATFORMTHEME "qt6ct"
     TERMINAL "kitty"
     TERM "kitty"
+    WAYLAND_DISPLAY "wayland-1"
 }
 
 // Cursor Configuration
