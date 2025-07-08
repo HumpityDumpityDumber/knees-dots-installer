@@ -4,6 +4,7 @@
   "meson",
   "python-gobject",
   "python3",
+  "blueprint-compiler",
   "btop",
   "starship",
   "steam",
