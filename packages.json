@@ -112,5 +112,7 @@
   "inkscape",
   "sass",
   "print-manager",
-  "gdm"
+  "gdm",
+  "libmpv-git",
+  "mangayomi-bin"
 ]
