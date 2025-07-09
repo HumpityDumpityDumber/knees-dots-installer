@@ -81,7 +81,6 @@
   "niri",
   "swww",
   "sttt",
-  "nwg-look",
   "rofi-wayland",
   "plymouth",
   "rofi-rbw",
@@ -114,5 +113,7 @@
   "print-manager",
   "gdm",
   "libmpv-git",
-  "mangayomi-bin"
+  "mangayomi-bin",
+  "scrcpy",
+  "refine"
 ]
