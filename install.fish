@@ -194,6 +194,14 @@ mkdir -p $HOME/.local/share/fonts
 cp -r "$SCRIPT_DIR/fonts/"* $HOME/.local/share/fonts/
 fc-cache -fv
 
+# fix gtk buttons
+echo (set_color yellow)"Fixing GTK configuration..."(set_color normal)    
+gsettings set org.gnome.desktop.wm.preferences button-layout :
+gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+gsettings set org.gnome.desktop.interface font-name 'Google Sans Rounded Bold 11'
+gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'
+gsettings set org.gnome.desktop.interface cursor-theme 'gruvterial'
+
 # clone gruvbox wallpapers
 echo (set_color yellow)"Cloning Gruvbox wallpapers..."(set_color normal)
 git clone --depth 1 https://github.com/AngelJumbo/gruvbox-wallpapers.git $HOME/Pictures/gruvpapers
