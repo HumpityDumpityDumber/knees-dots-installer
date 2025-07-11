@@ -124,14 +124,33 @@ sudo ln -sf /usr/bin/kitty /usr/local/bin/xterm
 
 # download grub theme
 echo (set_color yellow)"Downloading GRUB theme..."(set_color normal)
-sudo git clone --depth 1 https://github.com/13atm01/GRUB-Theme.git "/opt/GRUB-Theme/"
-sudo mv "/opt/GRUB-Theme/Inoue Takina" /opt/GRUB-Theme/Inoue-Takina
+sudo git clone --depth 1 https://github.com/13atm01/GRUB-Theme.git "/tmp/GRUB-Theme/"
+sudo mv "/tmp/GRUB-Theme/Inoue Takina" /tmp/GRUB-Theme/Inoue-Takina
 
 # install grub theme
 echo (set_color yellow)"Installing GRUB theme..."(set_color normal)
-cd "/opt/GRUB-Theme/Inoue-Takina"
+cd "/tmp/GRUB-Theme/Inoue-Takina"
 sudo chmod +x install.sh
 sudo ./install.sh
+
+# configure plymouth
+echo (set_color yellow)"Configuring Plymouth..."(set_color normal)
+
+# Insert ShowDelay=0 after [Daemon] in the Plymouth config
+sudo sed -i '/^\[Daemon\]/a ShowDelay=0' /etc/plymouth/plymouthd.conf
+
+# Append 'plymouth' to the HOOKS line in mkinitcpio.conf, if not already present
+if not grep -q 'plymouth' /etc/mkinitcpio.conf
+    sudo sed -i 's/^\(HOOKS=.*\))$/\1 plymouth)/' /etc/mkinitcpio.conf
+end
+
+# add splash to grub command
+if not grep -q 'splash' /etc/default/grub
+    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&splash /' /etc/default/grub
+end
+
+# Set and rebuild the default Plymouth theme
+sudo plymouth-set-default-theme -R bgrt
 
 # update grub config
 echo (set_color yellow)"Updating GRUB configuration..."(set_color normal)
@@ -155,29 +174,6 @@ cp -r "$SCRIPT_DIR/.config/"* $HOME/.config/
 # set perms for niri scripts
 echo (set_color yellow)"Setting permissions for niri scripts..."(set_color normal)
 chmod +x $HOME/.config/niri/scripts/*
-
-# configure plymouth
-echo (set_color yellow)"Configuring Plymouth..."(set_color normal)
-
-# Insert ShowDelay=0 after [Daemon] in the Plymouth config
-sudo sed -i '/^\[Daemon\]/a ShowDelay=0' /etc/plymouth/plymouthd.conf
-
-# Append 'plymouth' to the HOOKS line in mkinitcpio.conf, if not already present
-if not grep -q 'plymouth' /etc/mkinitcpio.conf
-    sudo sed -i 's/^\(HOOKS=.*\))$/\1 plymouth)/' /etc/mkinitcpio.conf
-end
-
-# add splash to grub command
-if not grep -q 'splash' /etc/default/grub
-    sudo sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="/&splash /' /etc/default/grub
-end
-
-# Set and rebuild the default Plymouth theme
-sudo plymouth-set-default-theme -R bgrt
-
-# reload grub configuration
-echo (set_color yellow)"Reloading GRUB configuration..."(set_color normal)
-sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # enable and set GDM as display manager
 echo (set_color yellow)"Enabling GDM display manager..."(set_color normal)
