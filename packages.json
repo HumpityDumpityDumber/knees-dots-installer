@@ -3,6 +3,7 @@
   "kitty",
   "meson",
   "waybar",
+  "gnome-text-editor",
   "file-roller",
   "python-gobject",
   "python3",
