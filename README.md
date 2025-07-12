@@ -1,6 +1,7 @@
 # Knee's Dotfiles Installer
 
-⚠️ **!! WARNING !! This is my personal dotfiles installer and not *fully* intended for public use!** ⚠️
+>[!CAUTION]
+>This is my personal dotfiles installer and not *fully* intended for public use!
 
 This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk!** Installing these dotfiles will overwrite your existing config files for certain apps. The full list can be seen in the "Whats Included" section below. ***Below you can read about configurations you may want to change, since they are tailored to me.***
 
@@ -58,6 +59,8 @@ You also get Google Sans Flex edited to just be rounded patched by me and [@twig
 ## !! What to change !!
 
 There are many places where you may want to change the configuration where it is specific to my system. These will be listed below:
+
+My displays are explicitly displayed in niri's `config.kdl`
 
 ## Troubleshooting
 
