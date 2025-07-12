@@ -60,7 +60,31 @@ You also get Google Sans Flex edited to just be rounded patched by me and [@twig
 
 There are many places where you may want to change the configuration where it is specific to my system. These will be listed below:
 
-My displays are explicitly displayed in niri's `config.kdl`
+### My displays are explicitly displayed in niri's `config.kdl`
+
+This is the section you are looking for...
+```
+// Output Configuration
+output "HDMI-A-1" {
+    mode "1920x1080@60"
+    scale 1
+    transform "normal"
+    position x=2560 y=270
+}
+
+output "DP-1" {
+    mode "2560x1440@165"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate on-demand=true
+}
+```
+Change/add to/remove these to match your settup!
+
+### Scripts specific to me
+I'd recommend just removing the `toggle-main-monitor.fish`, `cc-audio.fish`, `cc-stream`.
 
 ## Troubleshooting
 
