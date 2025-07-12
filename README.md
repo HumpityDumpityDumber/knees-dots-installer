@@ -2,7 +2,7 @@
 
 ⚠️ **!! WARNING !! This is my personal dotfiles installer and not *fully* intended for public use!** ⚠️
 
-This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk** - installing these dotfiles may overwrite your existing configurations. ***Below you can read about configurations you may want to change, since they are tailored to me.***
+This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk!** Installing these dotfiles will overwrite your existing config files for certain apps. The full list can be seen in the "Whats Included" section below. ***Below you can read about configurations you may want to change, since they are tailored to me.***
 
 ## Overview
 
@@ -34,7 +34,9 @@ fish install.fish
 optionally you could run `chmod +x ./install.fish` and then `./install.fish` to run, but that just adds an extra step :P
 ## What's Included
 
-These dotfiles include...
+Many packages installed with `yay`! If you would like to see every package I would recommend taking a look at the `packages.json`. The packages aren't listed here for the sole reason of there are a lot of them :P
+
+The dotfiles include...
 
 - equibop
 - fastfetch
