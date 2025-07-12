@@ -6,7 +6,7 @@ This repository contains my personal dotfiles and configuration setup. It is tai
 
 ## Example
 
-![Desktop Screenshot](https://github.com/HumpityDumpityDumber/knee-dots-installer/main/example.png)
+![Desktop Screenshot](https://github.com/HumpityDumpityDumber/knees-dots-installer/raw/main/example.png)
 *Example desktop showing niri, with kitty and themed floorp open.*
 
 ## Overview
