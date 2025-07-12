@@ -69,7 +69,8 @@
     "nnn-nerd",
     "nwg-look",
     "gamescope",
-    "ollama"
+    "ollama",
+    "podman"
   ],
   "gaming": [
     "steam",
