@@ -70,7 +70,8 @@
     "nwg-look",
     "gamescope",
     "ollama",
-    "podman"
+    "podman",
+    "opencl-amd"
   ],
   "gaming": [
     "steam",
