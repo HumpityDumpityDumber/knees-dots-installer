@@ -1,6 +1,6 @@
 # Knee's Dotfiles Installer
 
-⚠️ **WARNING: This is a personal dotfiles installer!** ⚠️
+⚠️ **!! WARNING !! This is my personal dotfiles installer and not *fully* intended for public use!** ⚠️
 
 This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk** - installing these dotfiles may overwrite your existing configurations. ***Below you can read about configurations you may want to change, since they are tailored to me.***
 
