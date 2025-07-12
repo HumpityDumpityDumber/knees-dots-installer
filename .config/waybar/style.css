@@ -4,9 +4,10 @@
     font-size: 13px;
     font-weight: 800;
     border: none;
-    border-radius: 999px;
-    margin-top: 0;
-    margin-bottom: 0;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
     box-shadow: none;
     outline: none;
     border: none;
@@ -15,50 +16,47 @@
 
 window#waybar {
     min-height: 0px;
-    min-width: 0;
+    min-width: 0px;
     background-color: transparent;
 }
 
 window#waybar > box {
     min-height: 0px;
-    min-width: 0;
+    min-width: 0px;
     background-color: transparent;
     border-radius: 999px;
-    padding: 5px;
+    padding: 0px;
 }
 
 /* Default for all modules */
 #gamemode,
 #taskbar,
+#group-launcher,
 #clock,
-#custom-notification,
 #custom-power,
 #custom-restart,
 #custom-logout,
-#custom-krita,
-#custom-inkscape,
-#custom-spotify,
-#custom-blender,
-#custom-steam,
-#custom-launcher,
 #custom-traypopout,
 #custom-focusright,
 #custom-focusleft,
 #custom-lock,
 #tray,
-#window,
+#custom-traypopout,
 #mpris,
 #pulseaudio,
 #idle_inhibitor,
 #custom-wlogout {
-    min-width: 0;
+    min-width: 0px;
     padding: 4px 12px;
-    margin-right: 6px;
-    color: #fbf1c7;
-    background-color: transparent;
+    margin-right: 3px;
+    margin-left: 3px;
+    color: #1d2021;
+    background-color: #83a598;
 }
 
 #clock:hover,
+#mpris:hover,
+#custom-traypopout:hover,
 #custom-notification:hover,
 #custom-updates:hover,
 #pulseaudio:hover,
@@ -66,7 +64,6 @@ window#waybar > box {
 #custom-power:hover,
 #custom-restart:hover,
 #custom-logout:hover,
-#custom-launcher:hover,
 #custom-focusright:hover,
 #custom-focusleft:hover,
 #custom-lock:hover {
@@ -79,165 +76,73 @@ window#waybar > box {
 
 /* Remove margin if first or last */
 .modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
+    margin-left: 0px;
 }
 
 .modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+    margin-right: 0px;
 }
 
 /* Customize each module */
 
 #custom-power {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
     padding-left: 12px;
     padding-right: 15px;
-    margin-left: 2;
-    margin-right: 2px;
     min-height: 34px;
+    margin-left: 0px;
 }
 
 #custom-restart {
     padding-left: 12px;
     padding-right: 15px;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
 #custom-logout {
     padding-left: 12px;
     padding-right: 15px;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 
 #custom-lock {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
     padding-left: 12px;
     padding-right: 15px;
-    margin-left: 2;
-    margin-right: 2px;
     min-height: 34px;
-}
-
-#taskbar {
-    min-width: 10px;
-    margin-right: 0;
-    margin-top: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-}
-
-#taskbar button {
-    padding-left: 7px;
-    padding-right: 3px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-}
-
-#custom-arch {
-    font-size: 20px;
-    padding-left: 9px;
-    padding-right: 9px;
-    margin-left: 2px;
-}
-
-#cava {
-    font-size: 20px;
-    font-family: Inconsolata Nerd Font;
-    background-color: transparent;
-}
-
-#custom-krita {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
-    padding-right: 5px;
-}
-
-#custom-inkscape {
-    border-radius: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#custom-spotify {
-    border-radius: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#custom-blender {
-    border-radius: 0;
-    margin-left: 0;
-    margin-right: 0;
-    padding-left: 5px;
-    padding-right: 5px;
+    margin-right: 6px;
 }
 
 #custom-focusright {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-left: 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-left: 0px;
     padding-left: 5px;
 }
 
 #custom-focusleft {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-right: 0px;
     padding-right: 5px;
 }
 
 #custom-traypopout {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-left: 0;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    margin-left: 0px;
     padding-left: 5px;
-}
-
-#custom-steam {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    margin-left: 0;
-    margin-right: 5;
-    padding-left: 5px;
-    padding-right: 16px;
-}
-
-#custom-launcher {
-    padding-left: 12px;
-    padding-right: 15px;
-    margin-left: 2px;
 }
 
 #pulseaudio {
     font-family: "MesloLGS Nerd Font";
-    padding-right: 14px;
-}
-
-#pulseaudio:hover {
-    font-family: "MesloLGS Nerd Font";
-    padding-right: 14px;
+    margin-right: 0px;
 }
 
 #pulseaudio-slider {
     min-width: 100px;
     background: transparent;
-    padding: 0px;
-    padding-bottom: 0px;
     box-shadow: none;
-    margin-top: 6px;
-    margin-bottom: 1px;
-    margin-right: 2px;
 }
 
 #pulseaudio-slider slider {
@@ -262,32 +167,33 @@ window#waybar > box {
 }
 
 #idle_inhibitor {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: 0px;
+    padding-bottom: 0px;
     padding-left: 12px;
     padding-right: 16px;
-    margin-left: 2;
     margin-right: 5px;
     min-height: 34px;
+    margin-left: 0px;
 }
 
 #tray menu {
     font-size: 20px;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
     border-radius: 15px;
 }
 
 #tray {
-    border-radius: 0;
-    margin-right: 0;
+    border-radius: 0px;
+    margin-right: 0px;
     padding-left: 8px;
-    padding-right: 5;
+    padding-right: 5px;
+    margin-left: 0px;
 }
 
 tooltip {
-    min-height: 0;
-    min-width: 0;
+    min-height: 0px;
+    min-width: 0px;
     background-color: #282828;
     border-radius: 10px;
 }
@@ -298,8 +204,8 @@ tooltip label {
 }
 
 #clock {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    margin-right: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    margin-right: 0px;
     padding: 8px 8px 4px 11px;
 }

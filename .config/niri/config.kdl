@@ -2,6 +2,8 @@ hotkey-overlay {
     skip-at-startup
 }
 
+prefer-no-csd
+
 clipboard {
     disable-primary
 }
@@ -59,7 +61,9 @@ layout {
     background-color "transparent"
 
     gaps 16
-
+    
+    default-column-width { proportion 1.0; }
+    
     empty-workspace-above-first
 
     always-center-single-column
@@ -72,17 +76,14 @@ layout {
         proportion 0.66667
     }
 
-    default-column-width {}
-
     focus-ring {
         off
     }
 
     border {
         width 8
-        active-gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+        active-gradient from="#ff0000ff" to="#0070ffff" angle=45 in="oklch shorter hue" relative-to="workspace-view"
         inactive-gradient from="#bf0000ff" to="#005fbe55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
-
     }
 
     shadow {
@@ -91,6 +92,7 @@ layout {
         spread 10
         offset x=0 y=6
         color "#1d2021"
+        draw-behind-window false
     }
 
     tab-indicator {
@@ -102,12 +104,12 @@ layout {
         position "left"
         gaps-between-tabs 8
         corner-radius 8
-        active-gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+        active-gradient from="#ff0000ff" to="#0070ffff" angle=45 in="oklch shorter hue" relative-to="workspace-view"
         inactive-gradient from="#bf0000ff" to="#005fbe55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
     }
 
     insert-hint {
-        gradient from="#ff0000ff" to="#0080ff55" angle=45 in="oklch shorter hue" relative-to="workspace-view"
+        gradient from="#ff0000ff" to="#0070ffff" angle=45 in="oklch shorter hue" relative-to="workspace-view"
 }
 
 
@@ -129,9 +131,7 @@ spawn-at-startup "/home/knee/.config/niri/scripts/dyncast.fish"
 spawn-at-startup "fish" "-c" "killall" "wl-clip-persist" "&&" "wl-clip-persist" "-c" "regular"
 spawn-at-startup "swayidle"
 
-
-prefer-no-csd
-screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d_%H-%M-%S.png"
 
 // Animation Configuration
 animations {
@@ -164,7 +164,12 @@ animations {
     spring damping-ratio=0.7 stiffness=300 epsilon=0.0001
   }
 }
-// Window Rules
+// Window and Layer Rules
+
+layer-rule {
+    match namespace="^rofi$"
+    baba-is-float true
+}
 
 // Put swww inside the overview backdrop.
 layer-rule {
@@ -172,6 +177,7 @@ layer-rule {
     place-within-backdrop true
 }
 
+// fix floorp pip
 window-rule {
     match app-id=r#"floorp$"# title="^Picture-in-Picture$"
     open-floating true
@@ -179,15 +185,25 @@ window-rule {
     default-window-height { fixed 270; }
 }
 
+// fix steam notifs
 window-rule {
     match app-id=r#"^steam$"# title=r#"^notificationtoasts_\d+_desktop$"#
     default-floating-position x=0 y=0 relative-to="bottom-right"
     open-focused false
 }
 
+// round all windows
 window-rule {
     geometry-corner-radius 15
     clip-to-geometry true
+}
+
+// fix system apps size
+window-rule {
+    match app-id="^kitty$"
+    match app-id="^org.gnome.Nautilus$"
+    match app-id="^org.gnome.TextEditor$"
+    default-column-width { proportion 0.5 ;}
 }
 
 // Key Bindings
@@ -203,9 +219,9 @@ binds {
     Mod+S repeat=false hotkey-overlay-title="Run App: scrcpy" { spawn "scrcpy"; }
     Ctrl+Shift+Escape repeat=false hotkey-overlay-title="Show System Tasks" { spawn "kitty" "-e" "btop"; }
 
-    // open capture card stream
-    Mod+X repeat=false hotkey-overlay-title="Open Capture Card Stream" { spawn "/home/knee/.config/niri/scripts/cc-stream.fish"; }
-
+	// open capture card stream
+	Mod+X repeat=false hotkey-overlay-title="Open capture card stream" { spawn "/home/knee/.config/niri/scripts/cc-stream.fish"; }
+	
     // open emoji picker
     Mod+Ctrl+V repeat=false hotkey-overlay-title="Open emoji picker" { spawn "/home/knee/.config/niri/scripts/emoji-picker.fish"; }
 
@@ -367,7 +383,7 @@ environment {
     GDK_BACKEND "wayland"
     CLUTTER_BACKEND "wayland"
     MOZ_ENABLE_WAYLAND "1"
-    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
     XDG_CURRENT_DESKTOP "niri"
     XDG_SESSION_DESKTOP "niri"
     XDG_SESSION_TYPE "wayland"
@@ -393,7 +409,7 @@ cursor {
 
 // Overview Configuration
 overview {
-    backdrop-color "#1d2021"
+    // backdrop-color "#1d2021"
     zoom 0.6
 }
 
@@ -402,10 +418,4 @@ gestures {
     hot-corners {
         off
     }
-}
-
-// Layer Rules
-layer-rule {
-    match namespace="^rofi$"
-    baba-is-float true
 }

@@ -3,15 +3,14 @@
   "position": "top",
   "reload_style_on_change": true,
   "spacing": 0,
-  "margin-top": 0,
-  "margin-right": 8,
-  "margin-left": 8,
-  "margin-bottom": 8,
+  "margin-top": 5,
+  "margin-right": 5,
+  "margin-left": 5,
+  "margin-bottom": 0,
   "fixed-center": true,
   "modules-left": ["group/power", "clock", "group/traypopout", "gamemode"],
   "modules-center": ["mpris"],
   "modules-right": [
-    "group/launcher",
     "custom/focusleft",
     "custom/focusright",
     "group/audio",
@@ -21,7 +20,7 @@
   "mpris": {
     "format": "󰏤 {dynamic}",
     "format-paused": "󰐊 {dynamic}",
-    "max-length": 30,
+    "max-length": 999,
   },
 
   "group/audio": {
@@ -38,50 +37,9 @@
     "drawer": {
       "transition-duration": 500,
       "transition-left-to-right": false,
+      "click-to-reveal": true
     },
     "modules": ["custom/traypopout", "tray"],
-  },
-
-  "custom/krita": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-format": "Krita",
-    "on-click": "krita & disown",
-  },
-
-  "custom/inkscape": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-format": "Inkscape",
-    "on-click": "inkscape & disown",
-  },
-
-  "custom/spotify": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-format": "Spotify",
-    "on-click": "spotify & disown",
-  },
-
-  "custom/blender": {
-    "format": "󰂫",
-    "tooltip": true,
-    "tooltip-format": "Blender",
-    "on-click": "blender & disown",
-  },
-
-  "custom/steam": {
-    "format": "",
-    "tooltip": true,
-    "tooltip-format": "Steam",
-    "on-click": "steam & disown",
-  },
-
-  "custom/launcher": {
-    "format": "󱓞",
-    "tooltip": true,
-    "tooltip-format": "Launcher",
-    "on-click": "rofi -show drun -theme ~/hyprmon/configs/rofi_theme.rasi",
   },
 
   "custom/traypopout": {
@@ -115,11 +73,11 @@
     "scroll-step": 5,
     "tooltip-format": "{volume}%",
     "format": "{icon}  {format_source}",
-    "format-bluetooth": "{volume}% {icon}  {format_source}",
-    "format-bluetooth-muted": "󰖁 {icon}  {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "󰖁 {icon}  {format_source}",
     "format-muted": "󰖁  {format_source}",
-    "format-source": "",
-    "format-source-muted": "",
+    "format-source": "󰍬",
+    "format-source-muted": "󰍭",
     "format-icons": {
       "headphone": "",
       "hands-free": "",

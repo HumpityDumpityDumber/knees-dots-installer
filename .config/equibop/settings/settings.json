@@ -1144,9 +1144,6 @@
         "Title": {
             "enabled": false
         },
-        "toggleVideoBind": {
-            "enabled": false
-        },
         "TosuRPC": {
             "enabled": false
         },
@@ -1400,6 +1397,9 @@
         },
         "OrbolayBridge": {
             "enabled": false
+        },
+        "ToggleVideoBind": {
+            "enabled": false
         }
     },
     "notifications": {
@@ -1412,7 +1412,7 @@
         "authenticated": false,
         "url": "https://cloud.equicord.fyi/",
         "settingsSync": false,
-        "settingsSyncVersion": 1751512572689
+        "settingsSyncVersion": 1751945916499
     },
     "ignoreResetWarning": false,
     "userCssVars": {}
