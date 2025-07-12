@@ -18,9 +18,8 @@ before downloading and using the installer you will need
 ## Installation
 
 to install use
-
 ```
-https://github.com/HumpityDumpityDumber/knees-dots-installer.git
+git clone https://github.com/HumpityDumpityDumber/knees-dots-installer.git
 ```
 **make sure /home/{your_user} is the current working directory (this can be checked by running `pwd`)
 
