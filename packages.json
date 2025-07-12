@@ -67,7 +67,8 @@
     "scrcpy",
     "nnn-nerd",
     "nwg-look",
-    "gamescope"
+    "gamescope",
+    "ollama"
   ],
   "gaming": [
     "steam",
