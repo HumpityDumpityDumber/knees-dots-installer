@@ -7,8 +7,11 @@ This repository contains my personal dotfiles and configuration setup. It is tai
 
 ## Example
 
-![Desktop Screenshot](https://github.com/HumpityDumpityDumber/knees-dots-installer/raw/main/example.png)
-*Example desktop showing niri, with kitty and themed floorp open.*
+![example](example.png)
+*Example desktop showing niri, with themed floorp open and kitty floating atop it.*
+
+![example2](example2.png)
+*Desktop Showing nautilus file manager, gnome's text editor, and kitty floating between them.*
 
 ## Overview
 
