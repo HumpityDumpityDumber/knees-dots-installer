@@ -4,6 +4,11 @@
 
 This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk!** Installing these dotfiles will overwrite your existing config files for certain apps. The full list can be seen in the "Whats Included" section below. ***Below you can read about configurations you may want to change, since they are tailored to me.***
 
+## Example
+
+![Desktop Screenshot](https://github.com/HumpityDumpityDumber/knee-dots-installer/main/example.png)
+*Example desktop showing niri, with kitty and themed floorp open.*
+
 ## Overview
 
 This installer gives you a niri installation with rofi as the launcher, mako as the notif daemon, mostly gnome system apps, and generally a gruvbox theme with some exceptions.
