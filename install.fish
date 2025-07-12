@@ -151,6 +151,7 @@ if read_confirm
     flatpak install --assumeyes flathub \
         com.obsproject.Studio \
         com.jeffser.Alpaca \
+        com.jeffser.Alpaca.Plugins.Ollama \
         com.github.marhkb.Pods \
         io.mrarm.mcpelauncher \
 else
