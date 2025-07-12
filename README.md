@@ -52,4 +52,4 @@ There might be problems with the **xwayland display** and **wayland display** so
 
 ## License
 
-<a href="https://github.com/HumpityDumpityDumber/knees-dots-installer">knees-dotfiles-installer</a> © 2025 by <a href="https://github.com/HumpityDumpityDumber">knee</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a><img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" alt=""><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" alt=""><img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" alt="">
+<a href="https://github.com/HumpityDumpityDumber/knees-dots-installer">knees-dotfiles-installer</a> © 2025 by <a href="https://github.com/HumpityDumpityDumber">knee</a> is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
