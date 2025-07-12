@@ -48,7 +48,7 @@ There are many places where you may want to change the configuration where it is
 
 ## Troubleshooting
 
-There might be problems with the **xwayland display** and **wayland display** so try setting those to `WAYLAND_DISPLAY "wayland-1"` and `DISPLAY ":0"` respectively in the niri config (`config.kdl` in the `env{}` section)
+There might be problems with the **xwayland display** and **wayland display** so try setting those to `WAYLAND_DISPLAY "wayland-0"` and `DISPLAY ":1"` respectively (this is usually only something  to consider when switching from gdm to sddm ive found) in the niri config (`config.kdl` in the `env{}` section)
 
 ## License
 
