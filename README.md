@@ -10,22 +10,31 @@ This installer gives you a niri installation with rofi as the launcher, mako as 
 
 ## Prerequisites
 
-before downloading and using the installer you will need
+before downloading and using the installer you will need...
 
 - git
 - fish
 
 ## Installation
 
-to install use
+to install use...
 ```
 git clone https://github.com/HumpityDumpityDumber/knees-dots-installer.git
 ```
 **make sure /home/{your_user} is the current working directory (this can be checked by running `pwd`)
 
+## Usage
+
+After cloning the repo into your home folder with the command above, the next step is running the following commands...
+```
+cd knees-dots-installer/
+fish install.fish
+```
+
+optionally you could run `chmod +x ./install.fish` and then `./install.fish` to run, but that just adds an extra step :P
 ## What's Included
 
-These dotfiles include
+These dotfiles include...
 
 - equibop
 - fastfetch
