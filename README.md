@@ -17,13 +17,11 @@ before downloading and using the installer you will need...
 
 ## Installation
 
-to install use...
+to download the repo use...
 ```
-git clone https://github.com/HumpityDumpityDumber/knees-dots-installer.git
+git clone --depth 1 https://github.com/HumpityDumpityDumber/knees-dots-installer.git
 ```
-**make sure /home/{your_user} is the current working directory (this can be checked by running `pwd`)
-
-## Usage
+**make sure /home/{your_user} is the current working directory (this can be checked by running `pwd`)**
 
 After cloning the repo into your home folder with the command above, the next step is running the following commands...
 ```
@@ -37,7 +35,6 @@ optionally you could run `chmod +x ./install.fish` and then `./install.fish` to 
 Many packages installed with `yay`! If you would like to see every package I would recommend taking a look at the `packages.json`. The packages aren't listed here for the sole reason of there are a lot of them :P
 
 The dotfiles include...
-
 - equibop
 - fastfetch
 - fish (gruv colors, and an opening animation using sttt configured to work with kitty)
