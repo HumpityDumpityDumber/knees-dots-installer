@@ -276,7 +276,7 @@ fc-cache -fv
 echo (set_color yellow)"Fixing GTK configuration..."(set_color normal)
 sleep 1
 gsettings set org.gnome.desktop.wm.preferences button-layout :
-gsettings set org.gnome.desktop.interface icon-theme 'Pop'
+gsettings set org.gnome.desktop.interface icon-theme 'bloom'
 gsettings set org.gnome.desktop.interface font-name 'Google Sans Rounded Bold 11'
 gsettings set org.gnome.desktop.interface gtk-theme 'Gruvbox-Dark'
 gsettings set org.gnome.desktop.interface cursor-theme 'gruvterial'

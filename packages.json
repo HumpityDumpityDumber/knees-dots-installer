@@ -46,7 +46,8 @@
     "gruvterial-gtk-theme",
     "sass",
     "btop",
-    "plymouth"
+    "plymouth",
+    "deepin-icon-theme"
   ],
   "extra": [
     "micro",
