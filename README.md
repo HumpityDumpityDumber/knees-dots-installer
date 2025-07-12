@@ -52,4 +52,4 @@ There might be problems with the **xwayland display** and **wayland display** so
 
 ## License
 
-My dotfiles are under the unlicense (yeah just do whatever)
+knees-dotfiles-installer © 2025 by knee (HumpityDumpityDumber) is licensed under CC BY-SA 4.0
