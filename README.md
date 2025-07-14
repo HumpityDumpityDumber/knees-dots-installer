@@ -87,7 +87,7 @@ output "DP-1" {
 Change/add to/remove these to match your settup!
 
 ### Scripts specific to me
-I'd recommend just removing the `toggle-main-monitor.fish`, `cc-audio.fish`, `cc-stream`.
+I'd recommend just removing the `toggle-main-monitor.fish`, `cc-audio.fish`, `cc-stream.fish` scripts.
 
 ## Troubleshooting
 
