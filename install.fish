@@ -265,6 +265,12 @@ echo (set_color yellow)"Setting Fish as the default shell..."(set_color normal)
 sleep 1
 chsh -s (which fish)
 
+# enable waybar and mako as services
+echo (set_color yellow)"Enabling Waybar and Mako services..."(set_color normal
+systemctl --user add-wants niri.service mako.service
+systemctl --user add-wants niri.service waybar.service
+systemctl --user enable ymako.service waybar.service
+
 # copy fonts into font folder
 echo (set_color yellow)"Copying fonts to the font folder..."(set_color normal)
 sleep 1
