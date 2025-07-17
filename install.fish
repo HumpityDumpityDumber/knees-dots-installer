@@ -40,8 +40,23 @@ function read_confirm
   end
 end
 
-echo (set_color blue)"This script will install various packages and configurations for your Arch Linux system."(set_color normal)
-echo (set_color blue)"It will also set up a GRUB theme and an audio visualizer bar."(set_color normal)
+# install packages from json array
+function install_packages_from_json
+    set category $argv[1]
+    set packages (jq -r ".$category[]" packages.json)
+    for package in $packages
+        echo (set_color cyan)"Installing $package..."(set_color normal)
+        sleep 1
+        yay -S --noconfirm --needed $package
+        if test $status -ne 0
+            echo (set_color red)"Failed to install $package, continuing..."(set_color normal)
+            sleep 1
+        end
+    end
+end
+
+# echo (set_color blue)"This script will install various packages and configurations for your Arch Linux system."(set_color normal)
+# echo (set_color blue)"It will also set up a GRUB theme and an audio visualizer bar."(set_color normal)
 sleep 1
 # ask for user permission
 if read_confirm
@@ -103,16 +118,8 @@ sleep 1
 sudo pacman -S --noconfirm jq
 
 # Install core packages
-set core_packages (jq -r '.core[]' packages.json)
-for package in $core_packages
-    echo (set_color cyan)"Installing $package..."(set_color normal)
-    sleep 1
-    yay -S --noconfirm --needed $package
-    if test $status -ne 0
-        echo (set_color red)"Failed to install $package, continuing..."(set_color normal)
-        sleep 1
-    end
-end
+echo (set_color yellow)"Installing core packages..."(set_color normal)
+install_packages_from_json core
 
 # Ask for extra packages
 set install_extra false
@@ -120,16 +127,7 @@ echo (set_color blue)"Extra packages include applications like Spotify, Obsidian
 if read_confirm
     echo (set_color green)"Installing extra packages..."(set_color normal)
     set install_extra true
-    set extra_packages (jq -r '.extra[]' packages.json)
-    for package in $extra_packages
-        echo (set_color cyan)"Installing $package..."(set_color normal)
-        sleep 1
-        yay -S --noconfirm --needed $package
-        if test $status -ne 0
-            echo (set_color red)"Failed to install $package, continuing..."(set_color normal)
-            sleep 1
-        end
-    end
+    install_packages_from_json extra
 else
     echo (set_color yellow)"Skipping extra packages..."(set_color normal)
     sleep 1
@@ -139,16 +137,7 @@ end
 echo (set_color blue)"Gaming packages include Steam, Lutris, Wine, and various gaming libraries."(set_color normal)
 if read_confirm
     echo (set_color green)"Installing gaming packages..."(set_color normal)
-    set gaming_packages (jq -r '.gaming[]' packages.json)
-    for package in $gaming_packages
-        echo (set_color cyan)"Installing $package..."(set_color normal)
-        sleep 1
-        yay -S --noconfirm --needed $package
-        if test $status -ne 0
-            echo (set_color red)"Failed to install $package, continuing..."(set_color normal)
-            sleep 1
-        end
-    end
+    install_packages_from_json gaming
 else
     echo (set_color yellow)"Skipping gaming packages..."(set_color normal)
     sleep 1
@@ -162,6 +151,7 @@ if read_confirm
     flatpak install --assumeyes flathub \
         com.obsproject.Studio \
         com.jeffser.Alpaca \
+        com.jeffser.Alpaca.Plugins.Ollama \
         com.github.marhkb.Pods \
         io.mrarm.mcpelauncher \
 else
@@ -311,6 +301,17 @@ if read_confirm
     nerdfonts-installer
 end
 
+echo (set_color blue)"Rebooting your system is recommended to apply all changes successfully."(set_color normal)
+sleep 1
+
+if read_confirm   
+    echo (set_color green)"Rebooting your system..."(set_color normal)
+    sleep 1
+    sudo reboot
+else
+    echo (set_color yellow)"You can reboot later to apply the changes."(set_color normal)
+    sleep 1
+end
 echo (set_color blue)"Rebooting your system is recommended to apply all changes successfully."(set_color normal)
 sleep 1
 

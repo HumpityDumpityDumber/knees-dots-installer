@@ -1,13 +1,17 @@
 # Knee's Dotfiles Installer
 
-⚠️ **!! WARNING !! This is my personal dotfiles installer and not *fully* intended for public use!** ⚠️
+>[!WARNING]
+>This is my personal dotfiles installer and not *fully* intended for public use!
 
 This repository contains my personal dotfiles and configuration setup. It is tailored specifically for my workflow, preferences, and system. **Use at your own risk!** Installing these dotfiles will overwrite your existing config files for certain apps. The full list can be seen in the "Whats Included" section below. ***Below you can read about configurations you may want to change, since they are tailored to me.***
 
 ## Example
 
-![Desktop Screenshot](https://github.com/HumpityDumpityDumber/knees-dots-installer/raw/main/example.png)
-*Example desktop showing niri, with kitty and themed floorp open.*
+![example](example.png)
+*Example desktop showing niri, with themed floorp open and kitty floating atop it.*
+
+![example2](example2.png)
+*Desktop Showing nautilus file manager, gnome's text editor, and kitty floating between them.*
 
 ## Overview
 
@@ -58,6 +62,32 @@ You also get Google Sans Flex edited to just be rounded patched by me and [@twig
 ## !! What to change !!
 
 There are many places where you may want to change the configuration where it is specific to my system. These will be listed below:
+
+### My displays are explicitly displayed in niri's `config.kdl`
+
+This is the section you are looking for...
+```
+// Output Configuration
+output "HDMI-A-1" {
+    mode "1920x1080@60"
+    scale 1
+    transform "normal"
+    position x=2560 y=270
+}
+
+output "DP-1" {
+    mode "2560x1440@165"
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    focus-at-startup
+    variable-refresh-rate on-demand=true
+}
+```
+Change/add to/remove these to match your settup!
+
+### Scripts specific to me
+I'd recommend just removing the `toggle-main-monitor.fish`, `cc-audio.fish`, `cc-stream.fish` scripts.
 
 ## Troubleshooting
 
